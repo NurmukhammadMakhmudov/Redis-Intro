@@ -18,10 +18,10 @@ public class PrintPaidUser implements Runnable {
        while (true)
        {
            int interval = new Random().nextInt(userCounter/2) + 1;
-           System.out.println("Interval: " + interval);
            try {
                Thread.sleep(interval*1000 - 1000);
                printUserByOrder.setShouldStop(true);
+               System.out.println("Ordered Users Stopped");
                Thread.sleep(1000);
                int user = new Random().nextInt(userCounter);
                System.out.println("Paid User " + redisStorage.getPaidUser(String.valueOf(user)));
